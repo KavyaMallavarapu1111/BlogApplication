@@ -6,6 +6,8 @@ import com.blogapplication.service.CategoryService;
 import com.blogapplication.utils.AppConstants;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +16,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/api/v1/categories")
+@Tag(
+        name = "Category APIs"
+)
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -28,9 +33,13 @@ public class CategoryController {
     //build addCategory restapi
     @PostMapping("/addcategory")
     @PreAuthorize("hasRole('ADMIN')")
+    @SecurityRequirement(
+            name = "Bearer Authentication"
+    )
     @Operation(
             summary = "Create Category REST API" ,
-            description = "Create Category REST API is used to create category"
+            description = "Create Category REST API is used to create category",
+            tags = "Categories tag"
     )
     @ApiResponse(
             responseCode = "201",
@@ -83,6 +92,9 @@ public class CategoryController {
             responseCode = "201",
             description = "Http Status 201 Created"
     )
+    @SecurityRequirement(
+            name = "Bearer Authentication"
+            )
     public ResponseEntity<CategoryDto> updateCategory(@PathVariable("id") Long id,@RequestBody CategoryDto category)
     {
         return ResponseEntity.ok(categoryService.updateCategory(id,category));
@@ -97,6 +109,9 @@ public class CategoryController {
     @ApiResponse(
             responseCode = "200",
             description = "Http Status 200 Success"
+    )
+    @SecurityRequirement(
+            name = "Bearer Authentication"
     )
     public ResponseEntity<String> deleteCategory(@PathVariable("id") Long id)
     {

@@ -1,16 +1,21 @@
 package com.blogapplication.payload;
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(description ="RegisterDto")
 public class RegisterDto {
-
+        @Schema(description ="name")
         private String name;
+        @Schema(description ="username")
         private String username;
+        @Schema(description ="email")
         private String email;
+        @Schema(description ="password")
         private String password;
 
     public String getName() {

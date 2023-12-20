@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 @OpenAPIDefinition(
 		info = @Info(
 				title = "Spring Boot Blog App REST APIs",
-				description = "Spring Boot Blog App REST APIs Documentation",
+				description = "Spring Boot Blog App REST APIs documentation",
 				version = "v1.0",
 				contact = @Contact(
 						name = "Kavya Mallavarapu",
@@ -28,7 +28,7 @@ import org.springframework.context.annotation.Bean;
 		),
 		externalDocs = @ExternalDocumentation(
 				description = "Spring Boot Blog App Documentation",
-				url = ""
+				url = "https://github.com/KavyaMallavarapu1111/BlogApplication.git"
 		)
 )
 public class BlogApplication {
@@ -38,8 +38,7 @@ public class BlogApplication {
 	}
 
 	@Bean
-	public ModelMapper modelMapper()
-	{
+	public ModelMapper modelMapper() {
 		return new ModelMapper();
 	}
 }

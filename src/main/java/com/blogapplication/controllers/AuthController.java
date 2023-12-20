@@ -7,12 +7,16 @@ import com.blogapplication.payload.RegisterDto;
 import com.blogapplication.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
+@Tag(
+        name = "Authentication APIs"
+)
 public class AuthController {
 
     private AuthService authService;

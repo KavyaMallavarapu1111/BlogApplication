@@ -6,6 +6,7 @@ import com.blogapplication.service.CommentService;
 import com.blogapplication.utils.AppConstants;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,10 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/comments")
+@RequestMapping("/api/v1/comments")
+@Tag(
+        name = "Comment APIs"
+)
 public class CommentController {
 
     private CommentService commentService;

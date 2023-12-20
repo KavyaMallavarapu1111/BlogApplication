@@ -1,5 +1,6 @@
 package com.blogapplication.payload;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -9,15 +10,22 @@ import jakarta.validation.constraints.Size;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(
+        description = "CommentDto"
+)
 public class CommentDto {
+    @Schema(description = "comment Id")
     private long id;
     @NotEmpty(message = "name should not be empty")
+    @Schema(description = "comment name")
     private String name;
     @NotEmpty(message = "email should not be null")
     @Email(message = "invalid email id")
+    @Schema(description = "email of the user")
     private String email;
     @NotEmpty(message = "body can not be null")
     @Size(min = 10,message = "body should be greater than 10 characters")
+    @Schema(description = "body of the comment")
     private String body;
 
     public long getId() {

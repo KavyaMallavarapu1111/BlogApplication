@@ -16,7 +16,7 @@ import java.util.List;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/posts")
+@RequestMapping("/api/posts/v1")
 @Tag(
         name = "CRUD APIS of Post Resource"
 )
@@ -109,7 +109,7 @@ public class PostController {
     )
     @ApiResponse(
             responseCode = "201",
-            description = "Http Status 201 CREATED"
+            description = "Http Status 200 SUCCESS"
     )
     public ResponseEntity<String> deletePost(@PathVariable("id") Long id)
     {
